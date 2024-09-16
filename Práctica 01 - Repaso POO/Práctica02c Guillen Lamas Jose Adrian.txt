@@ -1,0 +1,68 @@
+abstract class Dispositivo {
+    var nombre: String
+    var tipo: String
+    var fabricante: String
+    var precio: Double
+
+    // Constructor por defecto
+    constructor() {
+        nombre = "Desconocido"
+        tipo = "Desconocido"
+        fabricante = "Desconocido"
+        precio = 0.0
+    }
+
+    // Constructor personalizado
+    constructor(nombre: String, tipo: String, fabricante: String, precio: Double) {
+        this.nombre = nombre
+        this.tipo = tipo
+        this.fabricante = fabricante
+        this.precio = precio
+    }
+
+    // Método abstracto para mostrar los valores del dispositivo
+    abstract fun mostrarDispositivo()
+}
+
+class DispositivoElectronico : Dispositivo {
+    var bateria: String
+    var pantalla: String
+    var procesador: String
+
+    // Constructor por defecto
+    constructor() : super() {
+        bateria = "No especificado"
+        pantalla = "No especificado"
+        procesador = "No especificado"
+    }
+
+    // Constructor personalizado
+    constructor(nombre: String, tipo: String, fabricante: String, precio: Double, bateria: String, pantalla: String, procesador: String) 
+        : super(nombre, tipo, fabricante, precio) {
+        this.bateria = bateria
+        this.pantalla = pantalla
+        this.procesador = procesador
+    }
+
+    // Implementación del método abstracto
+    override fun mostrarDispositivo() {
+        println("Nombre: $nombre, Tipo: $tipo, Fabricante: $fabricante, Precio: $precio")
+        println("Batería: $bateria, Pantalla: $pantalla, Procesador: $procesador")
+    }
+}
+
+fun main() {
+    // Instancia con constructor por defecto
+    val dispositivo1 = DispositivoElectronico()
+    dispositivo1.mostrarDispositivo()
+
+    // Instancias con constructor personalizado
+    val dispositivo2 = DispositivoElectronico("Smartphone", "Móvil", "Samsung", 799.99, "4000mAh", "6.5 pulgadas", "Snapdragon 888")
+    val dispositivo3 = DispositivoElectronico("Laptop", "Portátil", "Dell", 1299.99, "6000mAh", "15.6 pulgadas", "Intel i7")
+    val dispositivo4 = DispositivoElectronico("Tablet", "Móvil", "Apple", 999.99, "5000mAh", "10.5 pulgadas", "Apple M1")
+
+    // Mostrar valores asignados
+    dispositivo2.mostrarDispositivo()
+    dispositivo3.mostrarDispositivo()
+    dispositivo4.mostrarDispositivo()
+}

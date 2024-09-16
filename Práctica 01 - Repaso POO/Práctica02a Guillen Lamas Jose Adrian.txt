@@ -1,0 +1,40 @@
+class Cita {
+    var fecha: String
+    var hora: String
+    var lugar: String
+
+    // Constructor por defecto
+    constructor() {
+        fecha = "No especificado"
+        hora = "No especificado"
+        lugar = "No especificado"
+    }
+
+    // Constructor personalizado
+    constructor(fecha: String, hora: String, lugar: String) {
+        this.fecha = fecha
+        this.hora = hora
+        this.lugar = lugar
+    }
+
+    // Método para mostrar los valores de la cita
+    fun mostrarCita() {
+        println("Fecha: $fecha, Hora: $hora, Lugar: $lugar")
+    }
+}
+
+fun main() {
+    // Instancia con constructor por defecto
+    val cita1 = Cita()
+    cita1.mostrarCita()
+
+    // Instancias con constructor personalizado
+    val cita2 = Cita("2024-09-01", "10:00 AM", "Oficina A")
+    val cita3 = Cita("2024-09-02", "02:00 PM", "Oficina B")
+    val cita4 = Cita("2024-09-03", "04:00 PM", "Oficina C")
+
+    // Mostrar valores asignados
+    cita2.mostrarCita()
+    cita3.mostrarCita()
+    cita4.mostrarCita()
+}

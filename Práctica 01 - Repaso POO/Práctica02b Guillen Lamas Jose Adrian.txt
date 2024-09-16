@@ -1,0 +1,70 @@
+open class Herramienta {
+    var marca: String
+    var modelo: String
+    var codigo: String
+    var costo: Double
+
+    // Constructor por defecto
+    constructor() {
+        marca = "Desconocido"
+        modelo = "Desconocido"
+        codigo = "0000"
+        costo = 0.0
+    }
+
+    // Constructor personalizado
+    constructor(marca: String, modelo: String, codigo: String, costo: Double) {
+        this.marca = marca
+        this.modelo = modelo
+        this.codigo = codigo
+        this.costo = costo
+    }
+
+    // Método para mostrar los valores de la herramienta
+    open fun mostrarHerramienta() {
+        println("Marca: $marca, Modelo: $modelo, Código: $codigo, Costo: $costo")
+    }
+}
+
+class HerramientaMecanica : Herramienta {
+    var peso: Double
+    var tamaño: String
+    var dimensiones: String
+
+    // Constructor por defecto
+    constructor() : super() {
+        peso = 0.0
+        tamaño = "Desconocido"
+        dimensiones = "Desconocido"
+    }
+
+    // Constructor personalizado
+    constructor(marca: String, modelo: String, codigo: String, costo: Double, peso: Double, tamaño: String, dimensiones: String) 
+        : super(marca, modelo, codigo, costo) {
+        this.peso = peso
+        this.tamaño = tamaño
+        this.dimensiones = dimensiones
+    }
+
+    // Método para mostrar los valores de la herramienta mecánica
+    override fun mostrarHerramienta() {
+        super.mostrarHerramienta()
+        println("Peso: $peso, Tamaño: $tamaño, Dimensiones: $dimensiones")
+    }
+}
+
+fun main() {
+    // Instancia con constructor por defecto
+    val herramienta1 = Herramienta()
+    herramienta1.mostrarHerramienta()
+
+    // Instancias con constructor personalizado
+    val herramienta2 = HerramientaMecanica("Bosch", "X123", "B123", 99.99, 1.5, "Mediano", "20x10x5 cm")
+    val herramienta3 = HerramientaMecanica("Makita", "Z456", "M456", 149.99, 2.0, "Grande", "25x15x7 cm")
+    val herramienta4 = HerramientaMecanica("DeWalt", "Y789", "D789", 199.99, 2.5, "Pequeño", "15x8x4 cm")
+
+    // Mostrar valores asignados
+    herramienta2.mostrarHerramienta()
+    herramienta3.mostrarHerramienta()
+    herramienta4.mostrarHerramienta()
+}
